@@ -1,6 +1,35 @@
-1) You send roughly 30 Million emails monthly through an email infrastructure service similar to SendGrid and Mandrill, called SparkPost.  SparkPost sends the message events associated with those email sends back to you via a post web hook so you can store and utilize them at a later date. Attached to this email is an example json body that you would receive from Sparkpost. You can read a description of the events included in this json here: https://support.sparkpost.com/customer/portal/articles/1976204-webhook-event-reference.
-Please describe the full stack of technologies you would use to receive the http requests webhook, process and store the data, and query these records in a meaningful way in the future. 
-Which fields seem like they would be important for customer analytics? Which might be important for other reasons? What reasons?
+1) You send roughly 30 Million emails monthly through an email infrastructure service similar to SendGrid and Mandrill, called SparkPost.
+SparkPost sends the message events associated with those email sends back to you via a post web hook so you can store and utilize them at
+a later date. Attached to this email is an example json body that you would receive from Sparkpost. You can read a description of the 
+events included in this json here: https://support.sparkpost.com/customer/portal/articles/1976204-webhook-event-reference.
+Please describe the full stack of technologies you would use to receive the http requests webhook, process and store the data, and query
+these records in a meaningful way in the future. Which fields seem like they would be important for customer analytics? Which might be 
+important for other reasons? What reasons?
 ------------------------------------------------------------------------------------------
+
+
+Backend 
+- Backend API built with PHP, MySQL and Webservers like Nginx, Apache 
+- Memcache to reduce load on database while processing webhook posts.
+
+Important fields
+
+	Type (eg. Engagement events, Unsubscribe events, Spam Complaint):
+		These events can help us analyze customer behaviors.
+
+	Recipient data (eg. rcpt_meta, rcpt_type):  	
+		It can help us segment cusomter based on demographic data and their responses to email category. 
+
+	Error/Failed data (error_code, bounce, delivery):
+		It is important to keep track of technical issues in delivery.
+
+	I would create different tables based Event Type 
+	- Message Events (Table)
+	- Engagement Events (Table)
+	- Generation Events (Table)
+	- Unsubscribe Events (Table)
+	- Relay Events (Table)
+
+
 
 
