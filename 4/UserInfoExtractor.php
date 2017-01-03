@@ -46,7 +46,6 @@ class UserInfoExtractor{
 	}
 
 	function extractAddress(){
-		//preg_match('/[A-Za-z\d].*[A-Z]{2}[\s]*[\d]{5}/',$this->line,$address);
 		preg_match('/[\dA-Za-z].*[,\s].*[A-Za-z\d].*[,\s].*[A-Z]{2}[\s]*[\d]{5}/',$this->line,$address);
 		
 		//remove address from string
@@ -57,10 +56,9 @@ class UserInfoExtractor{
 	function extractName(){
 		//find name
 
-		$name ="";
 		preg_match('/[A-Z][^\d^\s]+[\s]+[A-Z][^\d^\s]+/',$this->line,$name);
 
-		if(strlen($name[0]) == 0){
+		if( isset($name[0]) == false){
 			//remove the name from address line
 			preg_match('/[A-Z][^\d^\s]+[\s]+[A-Z][^\d^\s]+/',$this->address,$name);
 			$this->address =  str_replace($name[0],'',$this->address);

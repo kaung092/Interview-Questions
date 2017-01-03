@@ -13,7 +13,6 @@ class MyDB extends SQLite3
 class User{
 
 	var $db;
-	// var $color;
 
 	function __construct()
 	{
@@ -28,7 +27,7 @@ class User{
 
 	private function createTable(){
 		$sql =<<<EOF
-		      CREATE TABLE USER
+		      CREATE TABLE IF NOT EXISTS USER
 		      (ID INTEGER PRIMARY KEY    AUTOINCREMENT,
 		      NAME           TEXT    NOT NULL,
 		      EMAIL          TEXT     NOT NULL,
@@ -52,25 +51,25 @@ EOF;
 		$phone = $this->db->escapeString($phone);
 		$address = $this->db->escapeString($address);
 
-	   //$query = "INSERT INTO USER (NAME,EMAIL,PHONE,ADDRESS) VALUES ('".$name."', '".$email."', '".$phone."', '".$address."' )";
-	   $query = "INSERT INTO USER (NAME,EMAIL,PHONE,ADDRESS) VALUES ('{$name}','{$email}','{$phone}','{$address}')";
+		$query = "INSERT INTO USER (NAME,EMAIL,PHONE,ADDRESS) VALUES ('{$name}','{$email}','{$phone}','{$address}')";
 
-	   $ret = $this->db->exec($query);
-	   if(!$ret){
-	      echo $this->db->lastErrorMsg();
-	   } else {
-	      echo "User inserted successfully\n";
-	   }
+		$ret = $this->db->exec($query);
+		if(!$ret){
+		  echo $this->db->lastErrorMsg();
+		} else {
+		  echo "User inserted successfully\n";
+		}
 
 	}
 
 	public function showUsers(){
 
-		$sql= "SELECT * FROM USER";
-		$ret = $this->db->query($sql);
-	   if(!$ret){
-	      echo $this->db->lastErrorMsg();
-	   	} else {
+			$sql= "SELECT * FROM USER";
+			$ret = $this->db->query($sql);
+			if(!$ret){
+				echo $this->db->lastErrorMsg();
+			} 
+			else{
 	   			
 	            while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
 	            	echo "---------------------------------------\n";
