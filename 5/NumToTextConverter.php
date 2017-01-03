@@ -5,8 +5,8 @@
   header('content-type: application/json; charset=utf-8');
 
 	include $_SERVER['DOCUMENT_ROOT']."/temp/DAO.php";
-	
- 	$num = $_POST["userInput"];
+
+	$num = $_POST["userInput"];
 
   $result=null;                                                                                       
   if($num%3==0  && $num%5==0){
