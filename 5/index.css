@@ -50,6 +50,19 @@ li a:hover:not(.active) {
 }
 
 #butt_submit{
-    width: 10%;
+    width: 50%;
 
 }
+.foot{
+    bottom: 0;
+    position: fixed;
+}
+.container{
+    padding: 5%;
+}
+.row1{
+    width:50%;
+}
+
+
+

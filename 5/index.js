@@ -11,6 +11,7 @@ $(document).ready(function(){
           $('#butt_submit').attr("disabled", "disabled"); 
           //show loading graphic
           $('#spinner').css('display','inline-block');
+          $('#butt_submit').css('display','none');
 
 
           $.ajax({
@@ -34,8 +35,6 @@ $(document).ready(function(){
         else{
           $('#label_result').text("Error: Input must be numbers only and within the range (1-1000)");
         }
-        // $('#spinner').css('display','none');
-        // $('#butt_submit').text('Submit');
      
         return false;
     });
