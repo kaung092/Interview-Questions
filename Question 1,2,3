@@ -14,6 +14,7 @@ Answer:
 	Backend 
 		- Backend built with PHP, MySQL and Webservers like Nginx, Apache 
 		- Memcache to reduce load on database while processing webhook posts.
+		- Load Balanced Server on AWS to handle large traffic. 
 
 	Important fields
 
