@@ -21,7 +21,7 @@ while(! feof($file))
 
 		$userDAO->insertUser($name,$email,$phone,$address);
 
-   }
+   	}
 }
 fclose($file);
 
