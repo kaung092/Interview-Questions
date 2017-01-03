@@ -46,19 +46,19 @@ others to create modules for other session handling services.
 
 Answer:
 
-	2a. The way I understand this questions is that the default way of handing session would be to use Memcache, but we also want 
-	the developers who use this framework to have freedom to implement session handling with services other than Memcache. 
+	2a. The default way of handing session would be to use Memcache, but we also want the developers who use this framework to
+	have freedom to implement session handling with services other than Memcache. 
 	
 	Solution: 
-		I would create an interface for session handling, with some use cases prebuilt. The interface should provide mechanism to let 
-		developers build their own modules for other session handling services.
+		I would create an interface for session handling, with some use cases prebuilt. The interface should provide mechanism to
+		let developers build their own modules for other session handling services.
 	
 
-	2b. Normally, I would use abstract class that have shared methods. But since some classes already extends another unrelated class, they
-	cannot extends the abstract class. Therefore, I would create a helper class with static methods that can be directly accessed and 
-	shared by other classes.
-	I chose this solution because I think we want to reduce the duplicate methods everywhere. We can use interfaces but it will require each
-	classes to implement the methods again.
+	2b. Normally, I would use abstract class that have shared methods. But since some classes already extends another unrelated class,
+	they cannot extends the abstract class. Therefore, I would create a helper class with static methods that can be directly accessed
+	and shared by other classes.
+	I chose this solution because I think we want to reduce the duplicate methods everywhere. We can use interfaces but it will 
+	require each classes to implement the methods again.
 
 ===========================================================================================================================================
 
