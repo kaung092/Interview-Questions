@@ -13,7 +13,7 @@ class MyDB extends SQLite3
 class User{
 
 	var $db;
-	var $color;
+	// var $color;
 
 	function __construct()
 	{

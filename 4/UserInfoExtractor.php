@@ -11,12 +11,12 @@ class UserInfoExtractor{
 	function __construct($line)
 	{
 		$this->line = $line;
+
 		$this->phone = $this->extractPhone();
 		$this->email = $this->extractEmail();
 		
-		
-		$this->name = $this->extractName();
 		$this->address = $this->extractAddress();
+		$this->name = $this->extractName();
 		
 	}
 
@@ -55,9 +55,17 @@ class UserInfoExtractor{
 	}
 
 	function extractName(){
-	
 		//find name
+
+		$name ="";
 		preg_match('/[A-Z][^\d^\s]+[\s]+[A-Z][^\d^\s]+/',$this->line,$name);
+
+		if(strlen($name[0]) == 0){
+			//remove the name from address line
+			preg_match('/[A-Z][^\d^\s]+[\s]+[A-Z][^\d^\s]+/',$this->address,$name);
+			$this->address =  str_replace($name[0],'',$this->address);
+		}
+
 		//remove name from string
 		$this->line = str_replace($name[0],'',$this->line);
 		return $name[0];

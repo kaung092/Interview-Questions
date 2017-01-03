@@ -20,7 +20,6 @@ function readTextFile($userDAO){
 			
 			$extractor = new UserInfoExtractor($line);
 
-			
 			$email = $extractor->getEmail()."\n";	
 			$phone = $extractor->getPhone()."\n";			
 			$address = $extractor->getAddress()."\n";
