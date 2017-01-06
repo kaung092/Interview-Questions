@@ -27,7 +27,7 @@ Answer:
 		Error/Failed data (error_code, bounce, delivery):
 			It is important to keep track of technical issues in delivery.
 
-		I would create different tables based Event Type with Foreign keys to more detailed tables like (Recipient Profiles, templates etc)
+		I would create different tables based on Event Type with Foreign keys to more detailed tables like (Recipient Profiles, templates etc)
 		- Message Events (Table)
 		- Engagement Events (Table)
 		- Generation Events (Table)
